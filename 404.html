@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Error 404</title>
+	<style>
+		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			background-color: #000000;
+			color: #ffffff;
+		}
+		* {font-family: 'Itim', cursive; text-align: center; margin: 0;}
+	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+	<link rel="icon" href="https://www.iconsdb.com/icons/preview/black/question-mark-2-xxl.png">
+	
+	<!-- IE fallbacks for fetch() -->
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+	<script src="https://github.com/github/fetch/releases/download/v3.4.1/fetch.umd.js"></script>
+</head>
+<body>
+<iframe id="lolvid" src="https://www.youtube-nocookie.com/embed/7c83uouDPQA?controls=0&rel=0&disablekb=1&loop=1&modestbranding=1"
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="pointer-events: none; display: none;"></iframe>
+<div id="factDiv" style="font-size: 25px; display: none; margin-top: 10px;">
+<p>Random fun fact:</p>
+<p id="funfact"></p>
+</div>
+
+<p id="404txt" style="margin-top: 3em; font-size: 2em;">Oops, it seems like this page doesn't exist!</p>
+
+<script>
+String.prototype.includes = function(str) {
+	// IE fallback for String.includes()
+	return this.indexOf(str) !== -1;
+}
+
+document.addEventListener('click', function() {
+	// Play on page click
+	var lolvid = document.getElementById("lolvid");
+	var funfact = document.getElementById("funfact");
+	if (!lolvid.src.includes("autoplay=1")) {
+		document.getElementById("404txt").style.display = "none";
+		document.getElementById("factDiv").style.display = "block";
+		lolvid.src += "&autoplay=1";
+		lolvid.width = window.innerWidth - 6;
+		lolvid.height = window.innerHeight - 120;
+		lolvid.style.display = "block";
+		
+		randomFact();
+		const interval = setInterval(randomFact, 5000);
+	}
+});
+
+function randomFact() {
+	fetch('https://uselessfacts.jsph.pl/random.json?language=en').then(function (response) {
+		return response.json();
+	}).then(function (jsonResponse) {
+		return funfact.innerHTML = jsonResponse.text;
+	}).catch(function(error) {
+		console.log(error);
+        funfact.innerHTML = "An error occurred while displaying the fun fact.";
+    });;
+}
+</script>
+</body>
+</html>
