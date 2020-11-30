@@ -35,7 +35,7 @@
 	margin-top: 75px;
 }
 .item {
-	margin: 10px;
+	margin: 25px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -46,6 +46,11 @@
 	margin-right: 25px;
 	image-rendering: pixelated;
 	-ms-interpolation-mode: nearest-neighbor;
+}
+.warnBottom {
+	font-size: 75%;
+	margin-top: 25px;
+	text-align: center;
 }
 </style>
 </head>
@@ -62,6 +67,8 @@
 <div class="bigContainer">
 	<h2>Things made by other people that you should see</h2>
 	<p class="item" onclick="window.location.href = 'https://theuselessweb.com/';"><img src="https://theuselessweb.com/favicon.ico" class="nearneighBigIcon"></img>Visit our friend "The Useless Web" to see other crazy sites!</p>
-	<p class="item" onclick="window.location.href = 'http://superliminal.com/';"><img src="http://superliminal.com/favicon.ico" class="nearneighBigIcon"></img>A really cool site made by Melinda Green.</p>
+	<p class="item" onclick="window.location.href = 'http://superliminal.com/';"><img src="http://superliminal.com/favicon.ico" class="nearneighBigIcon"></img>A really cool website made by Melinda Green.*</p>
 </div>
+
+<p class="warnBottom">* This site contains applets which are no longer supported in most browsers. You can use <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/windows/appletviewer.html">appletviewer</a> from a <a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK before Java SE 11</a> or an extension like <a href="https://chrome.google.com/webstore/detail/cheerpj-applet-runner/bbmolahhldcbngedljfadjlognfaaein">CheerpJ Applet Runner</a> to run them.</p>
 </body>
