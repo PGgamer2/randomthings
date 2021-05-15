@@ -3,17 +3,62 @@
 <head>
 	<title>Remaining Time</title>
 	<link href="../style.css" rel="stylesheet">
+	<style>
+	#confetti-holder { position: absolute; }
+	audio { display:none;}
+	.sec1 {
+		background-color: #11181e;
+		width: 40%;
+		float: left;
+		height: 100vh;
+		border-right: 1vw solid #FFFFFF; 
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		color: white;
+	}
+	.sec2 {
+		background-color: #798EA4;
+		width: 60%;
+		float: left;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+	}
+	#daylabelToday {
+		margin-top: 15vh;
+	}
+	.sec1 * {
+		font-size: 250%;
+		margin-left: 7%;
+	}
+	.sec2 p { font-size: 150%; margin: 15px; }
+	#timelabelUntilFull { font-size: 200%; }
+	</style>
 </head>
 <body>
-	<div class="infoDiv">
-		<a id="timelabelToday"></a>
-		<a id="timelabeltop">Loading...</a>
-		<a id="DaysLabel"></a>
-		<a id="HoursLabel"></a>
-		<a id="MinutesLabel"></a>
-		<a id="SecondsLabel"></a>
-		<a id="MilliLabel"></a>
+	<canvas id="confetti-holder"></canvas>
+	<div class="sec1">
+		<p id="daylabelToday">Loading...</p>
+		<p id="timelabelToday"></p>
 	</div>
+	<div class="sec2">
+		<p id="timelabelUntilFull"></p>
+		<p id="DaysLabel"></p>
+		<p id="HoursLabel"></p>
+		<p id="MinutesLabel"></p>
+		<p id="SecondsLabel"></p>
+		<p id="MilliLabel"></p>
+	</div>
+	<audio id="partyhorn" src="partyhorn.wav"></audio>
+	<script src="confetti.min.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>
